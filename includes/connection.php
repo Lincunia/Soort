@@ -7,13 +7,10 @@ session_start();
 
 class classConn{
     function connectionDB(){
-	    /*
-	    DON'T FORGET TO FILL THIS!
-	    */
-	$host='';
-	$dbname='';
-	$username=''; 
-	$pswd='';
+	$host='localhost';
+	$dbname='rhythm_kitchen';
+	$username='postgres';
+	$pswd='pichi';
 
 	try{
 	    $conn=new PDO ("pgsql:host=$host, dbname=$dbname", $username, $pswd);
