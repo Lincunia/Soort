@@ -6,21 +6,19 @@ if(isset($_POST['btnAccModlA'])){
     $name=$_POST['name'];
     $money=$_POST['money'];
     $email=$_POST['email'];
-    $fdi='';
 
     if(!empty($_POST['numLev']) && !empty($_POST['charLev'])) {
 	$grade = $_POST['numLev'];
 	$room = $_POST['charLev'];
 	$fdi=$grade . $room;
     }
-    if($id=="" || $name=="" || $money=="" || $email=="" || $fdi==""){
+    if($id=="" || $name=="" || $money=="" || $email=="" || !$fdi){
 	$_SESSION['message']='Inserta datos de forma completa';
 	$_SESSION['property']='background-color: rgb(201, 30, 30); display: block;';
 	header('Location: ../index.php');
     }
 
     $query="INSERT INTO client (id, name, level, email, amount_mon) VALUES ($id, '$name', '$fdi', '$email', $money);";
-    echo $query;
     $result=$defConn->query($query);
     if(!$result){
 	die('Query fallida');
@@ -43,7 +41,7 @@ if(isset($_POST['btnAccModlB'])){
 	$room = $_POST['charLevLog'];
 	$fdi=$grade . $room;
     }
-    if($id=="" || $name=="" || $fdi==""){
+    if($id=="" || $name=="" || !$fdi){
 	$_SESSION['message']='Inserta datos de forma completa';
 	$_SESSION['property']='background-color: rgb(201, 30, 30); display: block;';
 	header('Location: ../index.php');

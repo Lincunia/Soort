@@ -81,8 +81,6 @@ BODY
 		<input name="btnModl" type="submit" class="btn" value="Registrarse si no está disponible">
 	    </form>
 	</article>
-	<article style="background-color: #f7e78b">
-	</article>
 	<article style="background-color: #fcc07c">
 <?php if(isset($_SESSION['message'])){ ?>
 <div name="d-alert" style="<?= $_SESSION['property'];?>">

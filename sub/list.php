@@ -35,80 +35,52 @@ else{?>
     </header>
     <div class="basicCon">
         <section>
-            <p>
-                <input type="radio"> Almojabana
-            </p>
-            <p>
-                <input type="radio"> Palo de queso
-            </p>
-            <p>
-                <input type="radio"> Hamburguesa
-                <select>
-                    <option>Ketchup</option>
-                    <option>Mayonesa</option>
-                    <option>Piña</option>
-                    <option>BBQ</option>
-                </select>
-                <input type="checkbox"> Tomate
-                <input type="checkbox"> Lechuga
-                <input type="checkbox"> Queso
-            </p>
-            <p>
-                <input type="radio"> Papas fritas
-                <select>
-                    <option>Ketchup</option>
-                    <option>Mayonesa</option>
-                    <option>Piña</option>
-                    <option>BBQ</option>
-                </select>
-            </p>
-            <p>
-                <input type="radio"> Perro caliente
-                <select>
-                    <option>Ketchup</option>
-                    <option>Mayonesa</option>
-                    <option>Piña</option>
-                    <option>BBQ</option>
-                </select>
-                <input type="checkbox"> Queso
-                <input type="checkbox"> Papas
-                <input type="checkbox"> Cebolla
-            </p>
-            <p>
-                <input type="radio"> Ensalada de frutas
-            </p>
-            <p>
-                <input type="radio"> Arepa con queso
-                <input type="checkbox"> Chorizo
-            </p>
-            <p>
-                <input type="radio"> Arepuela
-            </p>
-            <p>
-                <input type="radio"> Sandwich normal
-            </p>
-            <p>
-                <input type="radio"> Sandwich largo
-            </p>
-            <p>
-                <input type="radio"> Papas fritas (Margarita o superricas)
-            </p>
-            <p>
-                <input type="radio"> Galletas (6 unidades)
-            </p>
-            <p>
-                <input type="radio"> Galletas (4 unidades)
-            </p>
-            <p>
-                <input type="radio"> Ponqué gansito
-            </p>
-            <p>
-                <input type="radio"> Ponqué chocorramo o gala
-            </p>
-            <p>
-                <input type="radio"> Tostacos
-            </p>
+	    <form class="menu">
+		<li class="menu-item" name="burguer" id="burguer">
+		    <a href="#burguer" class="btn"> Hamburguesa </a>
+		    <div class="menu-item-content">
+			<div>
+			    I'll take one to make me feel better
+			    <input type="submit" value="Comprar">
+			</div>
+		    </div>
+		</li>
+		<li class="menu-item" name="fries" id="fries">
+		    <a href="#fries" class="btn"> Papas </a>
+		    <div class="menu-item-content">
+			<div>
+			    I work hard for my money
+			    <input type="submit" value="Comprar">
+			</div>
+		    </div>
+		</li>
+		<li class="menu-item" name="hot-dog" id="hot-dog">
+		    <a href="#hot-dog" class="btn"> Perro caliente </a>
+		    <div class="menu-item-content">
+			<div>
+			    Just another night it's all that it takes to understand the difference between lovers and
+			    fakes
+			    <input type="submit" value="Comprar">
+			</div>
+		    </div>
+		</li>
+		<li class="menu-item" name="arepa" id="arepa">
+		    <a href="#arepa" class="btn"> Arepa </a>
+		    <div class="menu-item-content">
+			<div>
+			    Break the last of my heart while you fight and leave the past behind
+			    <input type="submit" value="Comprar">
+			</div>
+		    </div>
+		</li>
+	    </form>
         </section>
+    <!--
+	<input type="radio"> 
+    -->
+<?php } ?>
+</body>
+</html>
         <aside>
 <?php
 if(isset($_POST['logOut'])){
@@ -138,9 +110,6 @@ if(isset($_POST['logOut'])){
             </div>
         </aside>
     </div>
-    <!--
-	<input type="radio"> 
-    -->
 <?php } ?>
 </body>
 </html>

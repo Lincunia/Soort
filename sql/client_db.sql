@@ -18,9 +18,8 @@ CREATE TABLE dips(
     addition VARCHAR(50),
     sauce VARCHAR(50),
 
-    date_of_purch TIMESTAMP,
-    FOREIGN KEY(date_of_purch) REFERENCES compra(date_of_purch)
-);
+    date_of_purcha TIMESTAMP,
+    FOREIGN KEY(date_of_purcha) REFERENCES compra(date_of_purch));
 CREATE TABLE products(
     id SERIAL,
     name VARCHAR(50)
@@ -64,19 +63,17 @@ VALUES (1013587285,
 INSERT INTO compra(name_prod,
     amount,
     total,
-    name,
-    dips)
+    name)
 VALUES ('Perro caliente',
     1,
     3500,
-    'Agudelo Vasquez Diego Alejandro',
-    true);
+    'Agudelo Vasquez Diego Alejandro');
 
 DO $$
     DECLARE
-    no_h timestamp:=(SELECT date_of_purch FROM compra WHERE name='Agudelo Vasquez Diego Alejandro' AND total=3500 AND name_prod='Arepa');
+    no_h timestamp:=(SELECT date_of_purch FROM compra WHERE name='Agudelo Vasquez Diego Alejandro' AND total=3500 AND name_prod='Perro caliente');
 BEGIN
-    INSERT INTO dips(date_of_purch,
+    INSERT INTO dips(date_of_purcha,
 	addition,
 	sauce)
     VALUES (no_h,
