@@ -57,7 +57,7 @@ if(isset($_POST['btnAccModlB'])){
     if(!$_SESSION['result']){
 	$_SESSION['message']='No puedes acceder, digita bien los datos o registrate';
 	$_SESSION['property']='background-color: rgb(201, 30, 30); display: block;';
-	// header('Location: ../index.php');
+	header('Location: ../index.php');
     }
     if($_SESSION['result']['name']==$name && $_SESSION['result']['id']==$id && $_SESSION['result']['level']==$fdi) header('Location: ../sub/list.php');
 }

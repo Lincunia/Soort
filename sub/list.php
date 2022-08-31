@@ -27,7 +27,8 @@ function is_session_started()
 if ( is_session_started() === FALSE ){
     header('Location: ../index.php');
 }
-else{?>
+else{
+?>
     <header>
 	<h1>Menú</h1>
 	Bienvenido, <?= $_SESSION['result']['name']; ?><br>
@@ -75,15 +76,8 @@ else{?>
 		</li>
 	    </form>
         </section>
-    <!--
-	<input type="radio"> 
-    -->
-<?php } ?>
-</body>
-</html>
         <aside>
-<?php
-if(isset($_POST['logOut'])){
+<?php if(isset($_POST['logOut'])){
     session_destroy();
     header('Location: ../index.php');
 }
@@ -102,6 +96,7 @@ if(isset($_POST['logOut'])){
             <div style="background-color: #f0e3ad">
 		<form action="" method="POST">
 		    <button disabled>Terminar</button>
+		    <button><a href="./modify.php" style="text-decoration: none">Modificar o eliminar usuario</a></button>
 <!--
                 <button><a href="../index.php">Cancelar</a></button>
 -->

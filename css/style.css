@@ -41,8 +41,8 @@ aside{
     margin-left: 5px;
     overflow: hidden;
 }
-input[type=text]{
-    width 100%;
+input{
+    width: 100%;
 }
 input[type=checkbox]{
     width: 20px;
@@ -50,6 +50,7 @@ input[type=checkbox]{
 }
 input[type=submit] {
     border-radius: 0px;
+    width: auto;
     background-color: #fff25e;
     border: 0px solid;
     padding: 5px;
