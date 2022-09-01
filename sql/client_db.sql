@@ -43,10 +43,7 @@ INSERT INTO products(name) VALUES
 
 INSERT INTO client (id, name, level, email, amount_mon) VALUES
 (1034400029, 'Agudelo Vasquez Diego Alejandro', '11A', 'agudelodiego10.a@gmail.com', 150000),
-(1013587285, 'Ruiz Nausa María Alejandra', '11A', 'ruiznausamariaalejandra10a@gmail.com', 150000),
-(1028860527, 'Pascuas Barroso Sara', '11A', 'pascuasbarrososara10a@gmail.com', 15000),
-(1023875679, 'Rubiano Martinez Nicolas Esteban', '11A', 'nikolasrubiano11@gmail.com', 150000),
-(1013104172, 'Forero Carrillo Joshua Alejandro', '11A', 'forerocarrillojoshua10a@gmail.com', 30000);
+(1013587285, 'Ruiz Nausa María Alejandra', '11A', 'ruiznausamariaalejandra10a@gmail.com', 150000);
 -- DECLARAR UNA COMPRA PARTICULAR
 INSERT INTO shopping(name_prod,
     amount,
