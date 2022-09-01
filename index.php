@@ -1,9 +1,21 @@
 <?php
 include('includes/connection.php');
-include('includes/header.php');
-
 $_SESSION['displayed']='display: flex';
 ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css"></link>
+    <link rel="shortcut icon" href="./media/img/logo.png" type="image/x-icon">
+
+    <title>Main - soort</title>
+</head>
+<body style="background-color: #c3d0e6">
+    <header style="background-color: #ddc3e6">
+	<h1>Soort</h1>
+    </header>
 <!--=============================
 MODAL
 ==============================-->
@@ -72,7 +84,7 @@ if(isset($_POST['btnLog'])){ ?>
 <!--=============================
 BODY
 ==============================-->
-<div class="basicCon" style="background-color: #adf0b9">
+<div class="basicCon" >
     <section style="background-color: #f0e3ad">
 	<article style="background-color: #f0cead">
 	    <form method="post">
@@ -83,7 +95,7 @@ BODY
 	</article>
 	<article style="background-color: #fcc07c">
 <?php if(isset($_SESSION['message'])){ ?>
-<div name="d-alert" style="<?= $_SESSION['property'];?>">
+<div class="advice" name="d-alert" style="<?= $_SESSION['property'];?>">
     <?= $_SESSION['message'];?>
 </div>
 <?php session_unset();} ?>
@@ -95,7 +107,7 @@ BODY
 		    <th>Cantidad</th>
 		</tr>
 <?php
-include_once("./crud/read.php");
+    include_once("./crud/read.php");
 ?>
 	    </table>
 	</article>
@@ -107,9 +119,21 @@ include_once("./crud/read.php");
 	Se trata de un sitio en el que busca realizar ordenes de una forma rápida, haciendo las cosas de manera
 	premeditada y garantiza un orden que ayudará a los estudiantes a obtener lo que necesitan de forma rápida.
 	Para hacerlo, este sitio emplea un algorítmo basado en una estructura de datos que busca ser rápido
-	independientemente de la cantidad de elementos que hayan en un programa (Estudiantes registrados en el
+	independientclass="advice" emente de la cantidad de elementos que hayan en un programa (Estudiantes registrados en el
 	sitio)
 	<h2>¿Cómo usarlo?</h2>
+	<p>
+	Lo primero que el usuario debe hacer si nunca interactuó con Soort, es primero registrarse en el botón
+	“Registrarse si no está disponible” que aparece en la parte superior de la notable tabla está al lado de la
+	página.
+	</p>
+	<p>
+	Lo siguiente que hay que hacer es comprar lo que uno desee con lo que uno desea para que conseguir en la página
+	</p>
+	<p>
+	Por último, si se arrepiente de tener una cuenta o desea hacer cambios, clickee sobre el botón de “Cambios de
+	cuenta” que aparece mientras se realiza la compra
+	</p>
     </aside>
 </div>
 <?php

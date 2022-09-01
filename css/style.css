@@ -8,7 +8,7 @@ header{
     margin-bottom: 5px;
     text-align: center;
 }
-div{
+.advice{
     padding: 0.5cm;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -44,7 +44,7 @@ aside{
 input{
     width: 100%;
 }
-input[type=checkbox]{
+input[type=checkbox], input[type=radio]{
     width: 20px;
     margin: .4rem;
 }
@@ -74,37 +74,30 @@ input[type=submit] {
 }
 /*=============================*/
 .menu{
-    background-color: #edaa77;
+    background-color: #ede58e;
+    padding: 10px;
+}
+.menu div p{
     overflow: hidden;
-}
-.menu a{
-    text-decoration: none;
-}
-.menu-item{
-    list-style: none;
-    margin: 5px;
-}
-.btn{
-    display: block;
-    padding: 5px;
-    background-color: #f7eb9c;
-    position: relative;
-}
-.menu-item-content{
+    max-height: 0;
+    text-align: justify;
+    background-color: #f58e8e;
     margin-top: 0px;
-    background-color: #cbf79c;
-    display: none;
-    transition: max-height 0.2s;
-    max-height: 0px;
+    border-radius: 0px;
+    transition: all .2s ease-in-out;
 }
-.menu-item-content div{
-    position: relative;
-    margin: 0px;
-}
-.menu-item:target .menu-item-content{
+.menu div a{
+    text-decoration: none;
     display: block;
-    max-height: 10em;
-    padding: 0px;
+    border-radius: 0px;
+    transition: all .2s ease-in-out;
+    padding: 10px;
+    background-color: #fab991;
+    color: black;
+}
+.menu div:target p{
+    max-height: 100vh;
+    padding: 10px;
 }
 /*=============================*/
 .basicCon{

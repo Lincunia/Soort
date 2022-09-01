@@ -37,43 +37,43 @@ else{
     <div class="basicCon">
         <section>
 	    <form class="menu">
-		<li class="menu-item" name="burguer" id="burguer">
-		    <a href="#burguer" class="btn"> Hamburguesa </a>
-		    <div class="menu-item-content">
-			<div>
-			    I'll take one to make me feel better
-			    <input type="submit" value="Comprar">
-			</div>
-		    </div>
-		</li>
-		<li class="menu-item" name="fries" id="fries">
-		    <a href="#fries" class="btn"> Papas </a>
-		    <div class="menu-item-content">
-			<div>
-			    I work hard for my money
-			    <input type="submit" value="Comprar">
-			</div>
-		    </div>
-		</li>
-		<li class="menu-item" name="hot-dog" id="hot-dog">
-		    <a href="#hot-dog" class="btn"> Perro caliente </a>
-		    <div class="menu-item-content">
-			<div>
-			    Just another night it's all that it takes to understand the difference between lovers and
-			    fakes
-			    <input type="submit" value="Comprar">
-			</div>
-		    </div>
-		</li>
-		<li class="menu-item" name="arepa" id="arepa">
-		    <a href="#arepa" class="btn"> Arepa </a>
-		    <div class="menu-item-content">
-			<div>
-			    Break the last of my heart while you fight and leave the past behind
-			    <input type="submit" value="Comprar">
-			</div>
-		    </div>
-		</li>
+		<div name="burguer" id="burguer">
+		    <a href="#burguer"> Hamburguesa </a>
+		    <p>
+		    <input type="radio"> Ketchup<br>
+		    <input type="radio"> Salsa rosada<br>
+		    <input type="radio"> Mostaza<br>
+		    <input type="radio"> BBQ<br>
+		    <input type="submit" name="burger" value="Comprar">
+		    </p>
+		</div>
+		<div name="fries" id="fries">
+		    <a href="#fries"> Papas fritas </a>
+		    <p>In diam. Duis mattis. Aliquam et mi quis turpis pellentesque consequat.
+		    Suspendisse nulla erat, lacinia nec, pretium vitae, feugiat ac, quam. Etiam sed
+		    tellus vel est ultrices condimentum. Vestibulum euismod. Vivamus blandit.
+		    Pellentesque eu urna. Vestibulum consequat sem vitae dui. In dictum feugiat
+		    quam. Phasellus placerat. In sem nisl, elementum vitae, venenatis nec, lacinia
+		    ac, arcu. Pellentesque gravida egestas mi. Integer rutrum tincidunt libero.</p>
+		</div>
+		<div name="hot-dog" id="hot-dog">
+		    <a href="#hot-dog"> Perro caliente </a>
+		    <p>Curabitur cursus volutpat neque. Proin posuere mauris ut ipsum. Praesent
+		    scelerisque tortor a justo. Quisque consequat libero eu erat. In eros augue,
+		    sollicitudin sed, tempus tincidunt, pulvinar a, lectus. Vestibulum ante ipsum
+		    primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas
+		    interdum purus id risus. Ut ultricies cursus dui. In nec enim at odio aliquam
+		    iaculis. Fusce nisl. Pellentesque sagittis. Lorem ipsum dolor sit amet,
+		    consectetuer adipiscing elit. Aenean placerat tellus. In semper sagittis enim.
+		    Aliquam risus neque, pretium in, fermentum vitae, vulputate et, massa. Nulla
+		    sed erat.</p>
+		</div>
+		<div name="almojabana" id="almojabana">
+		    <a href="#almojabana"> Almojabana </a>
+		    <p>
+		    aofghpaisdfiasdjfioas
+		    </p>
+		</div>
 	    </form>
         </section>
         <aside>
@@ -82,7 +82,7 @@ else{
     header('Location: ../index.php');
 }
 ?>
-            <div style="background-color: #f2aabd;">
+            <div class="advice" style="background-color: #f2aabd;">
                 <h2>Lo que integrar en la lista de compras:</h2>
                 <ol>
                     <li>Almojabana</li>
@@ -96,7 +96,7 @@ else{
             <div style="background-color: #f0e3ad">
 		<form action="" method="POST">
 		    <button disabled>Terminar</button>
-		    <button><a href="./modify.php" style="text-decoration: none">Modificar o eliminar usuario</a></button>
+		    <button><a href="./modify.php" style="text-decoration: none">Cambios de cuenta</a></button>
 <!--
                 <button><a href="../index.php">Cancelar</a></button>
 -->
