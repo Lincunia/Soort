@@ -6,20 +6,20 @@ if(isset($_POST['btnAccModlA'])){
     $name=$_POST['name'];
     $money=$_POST['money'];
     $email=$_POST['email'];
-
+    $fdi='';
     if(!empty($_POST['numLev']) && !empty($_POST['charLev'])) {
 	$grade = $_POST['numLev'];
 	$room = $_POST['charLev'];
 	$fdi=$grade . $room;
     }
-    if($id=="" || $name=="" || $money=="" || $email=="" || !$fdi){
+
+    if($id==="" || $name==="" || $money==="" || $email==="" || $fdi===""){
 	$_SESSION['message']='Inserta datos de forma completa';
 	$_SESSION['property']='background-color: rgb(201, 30, 30); display: block;';
 	header('Location: ../index.php');
     }
 
-    $query="INSERT INTO client (id, name, level, email, amount_mon) VALUES ($id, '$name', '$fdi', '$email', $money);";
-    $result=$defConn->query($query);
+    $result=$defConn->query("INSERT INTO client (id, name, level, email, amount_mon) VALUES ($id, '$name', '$fdi', '$email', $money);");
     if(!$result){
 	die('Query fallida');
     }
@@ -46,13 +46,12 @@ if(isset($_POST['btnAccModlB'])){
 	$_SESSION['property']='background-color: rgb(201, 30, 30); display: block;';
 	header('Location: ../index.php');
     }
-
-    $query="SELECT * FROM client WHERE name='$name' AND level='$fdi' AND id=$id;";
-    $result=$defConn->query($query);
+    $result=$defConn->query("SELECT * FROM client WHERE name='$name' AND level='$fdi' AND id=$id;");
     if(!$result){
 	die('Query fallida');
     }
     $result->execute();
+
     $_SESSION['result'] = $result->fetch(PDO::FETCH_ASSOC);
     if(!$_SESSION['result']){
 	$_SESSION['message']='No puedes acceder, digita bien los datos o registrate';

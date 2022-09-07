@@ -30,8 +30,7 @@ MODAL
 	    <input type="email" placeholder="Correo electrónico" name="email"><br>
 	    <i>Curso: </i>
 	    <select name="numLev">
-		<option disabled selected>Grado</option>
-		<option value="6">6</option>
+		<option value="6" selected>6</option>
 		<option value="7">7</option>
 		<option value="8">8</option>
 		<option value="9">9</option>
@@ -40,8 +39,7 @@ MODAL
 	    </select>
 	    <i>Salón:</i>
 	    <select name="charLev">
-		<option disabled selected>Salón</option>
-		<option value="A">A</option>
+		<option value="A" selected>A</option>
 		<option value="B">B</option>
 		<option value="C">C</option>
 	    </select><br>
@@ -89,8 +87,8 @@ BODY
 	<article style="background-color: #f0cead">
 	    <form method="post">
 		<h2>Formulario de verificación</h2>
-		<input name="btnLog" type="submit" class="btn" value="Buscar">
-		<input name="btnModl" type="submit" class="btn" value="Registrarse si no está disponible">
+		<input name="btnLog" type="submit" value="Buscar">
+		<input name="btnModl" type="submit" value="Registrarse si no está disponible">
 	    </form>
 	</article>
 	<article style="background-color: #fcc07c">
@@ -99,6 +97,7 @@ BODY
     <?= $_SESSION['message'];?>
 </div>
 <?php session_unset();} ?>
+<!--
 	    <table name="table">
 		<tr>
 		    <th>ID</th>
@@ -107,14 +106,16 @@ BODY
 		    <th>Cantidad</th>
 		</tr>
 <?php
-    include_once("./crud/read.php");
+//    include_once("./crud/read.php");
 ?>
 	    </table>
+-->
 	</article>
     </section>
     <aside style="background-color: #adecf0">
 	<h2>¿Qué es?</h2>
 	Esto es un sitio dedicado a la organización de los estudiantes en las filas de cafetería.
+	<img src="./media/img/Logo.png" style="width: 100%">
 	<h2>¿En qué consiste?</h2>
 	Se trata de un sitio en el que busca realizar ordenes de una forma rápida, haciendo las cosas de manera
 	premeditada y garantiza un orden que ayudará a los estudiantes a obtener lo que necesitan de forma rápida.
