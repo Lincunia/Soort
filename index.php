@@ -97,7 +97,6 @@ BODY
     <?= $_SESSION['message'];?>
 </div>
 <?php session_unset();} ?>
-<!--
 	    <table name="table">
 		<tr>
 		    <th>ID</th>
@@ -106,10 +105,9 @@ BODY
 		    <th>Cantidad</th>
 		</tr>
 <?php
-//    include_once("./crud/read.php");
+    include_once("./crud/read.php");
 ?>
 	    </table>
--->
 	</article>
     </section>
     <aside style="background-color: #adecf0">

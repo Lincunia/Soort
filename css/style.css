@@ -44,7 +44,7 @@ aside{
 input{
     width: 100%;
 }
-input[type=checkbox], input[type=radio]{
+input[type=checkbox]{
     width: 20px;
     margin: .4rem;
 }
@@ -77,27 +77,17 @@ input[type=submit] {
     background-color: #ede58e;
     padding: 10px;
 }
-.menu div p{
-    overflow: hidden;
-    max-height: 0;
-    text-align: justify;
-    background-color: #f58e8e;
-    margin-top: 0px;
-    border-radius: 0px;
-    transition: all .2s ease-in-out;
-}
-.menu div a{
-    text-decoration: none;
+.menu div{
     display: block;
     border-radius: 0px;
+    margin-top: 2px;
     transition: all .2s ease-in-out;
     padding: 10px;
     background-color: #fab991;
     color: black;
 }
-.menu div:target p{
-    max-height: 100vh;
-    padding: 10px;
+.menu label{
+    float: right;
 }
 /*=============================*/
 .basicCon{

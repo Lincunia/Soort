@@ -20,25 +20,24 @@ CREATE TABLE IF NOT EXISTS shopping(
 CREATE TABLE IF NOT EXISTS products(
     id SERIAL,
     name VARCHAR(50),
-    aux_name VARCHAR(50),
     prize INT
 );
 
 INSERT INTO products(name, aux_name, prize) VALUES
-('Arepa', 'arepa', 1200), 
-('Empanada', 'empanada', 1200), 
-('Perro caliente', 'hot-dog', 3500), 
-('Pastel de pollo', 'pastry-chicken', 3500), 
-('Pastel de carne', 'pastry-beaf', 3500), 
-('Galletas Festival', 'festival', 800), 
-('Galletas Oreo', 'oreo', 1200), 
-('Bandera', 'flaggy', 800),
-('Cocosette', 'cocossette', 1500),
-('Papas Margarita', 'margarita', 2200),
-('Dona', 'donnut', 2200),
-('Almojabana', 'almojabana', 1500),
-('Papas fritas', 'fries', 1600),
-('Hamburguesa', 'burguer', 6000);
+('arepa', 1200), 
+('empanada', 1200), 
+('perro_caliente', 3500), 
+('pastel_de_pollo', 3500), 
+('pastel_de_carne', 3500), 
+('galletas_Festival', 800), 
+('galletas_Oreo', 1200), 
+('bandera',  800),
+('cocosette', 1500),
+('papas_Margarita', 2200),
+('dona', 2200),
+('almojabana', 1500),
+('papas fritas', 1600),
+('hamburguesa', 6000);
 
 INSERT INTO client (id, name, level, email, amount_mon) VALUES
 (1034400029, 'Agudelo Vasquez Diego Alejandro', '11A', 'agudelodiego10.a@gmail.com', 150000),

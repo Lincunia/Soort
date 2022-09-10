@@ -23,11 +23,11 @@ function is_session_started() {
 </head>
 <body style="background-color: #f9e0ff">
 <?php
+$_SESSION['prod_aux']='';
 if ( is_session_started() === FALSE ){
     header('Location: ../index.php');
 }
-else{
-?>
+else{ ?>
     <header>
 	<h1>Menú</h1>
 	Bienvenido, <?= $_SESSION['result']['name']; ?><br>
@@ -37,41 +37,36 @@ else{
 	<section>
 	    <form method="post" class="menu">
 <?php
-    include('../crud/read.php');
+    include("../crud/read.php");
 ?>
 	    </form>
 	</section>
 	<aside>
+	    <div class="advice" style="background-color: #f2aabd;">
+		<h2>Lo que integrar en la lista de compras:</h2>
+		<ol>
 <?php
     if(isset($_POST['logOut'])){
 	session_destroy();
 	header('Location: ../index.php');
     }
-?>
-	    <div class="advice" style="background-color: #f2aabd;">
-		<h2>Lo que integrar en la lista de compras:</h2>
-		<ol>
-<?php
-    $prod_aux=array();
-    for($i=2; $i<count($prod); $i+=3){
-	if(isset($_POST[$prod[$i]])){
-	    echo "<li>".$prod[$i-2]."</li>";
-	    $prod_aux+=array($prod[$i-2]);	    
+    if(isset($_POST['list_it'])){
+	/*
+	if(!empty($_POST['check_list'])){
+	    foreach($_POST['check_list'] as $checked){
+		echo $checked."<br>";
+	    }
 	}
+	*/
     }
-    print_r($prod_aux);
 ?>
 		</ol>
-		Total a pagar: $45000
 		<div style="width: 20px"><a href="./egg.html"></a></div>
 	    </div>
 	    <div style="background-color: #f0e3ad">
-		<form action="" method="POST">
-		    <input type="submit" name="list_of_it" value="Terminar">
+		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
+		    <input type="submit" name="list_it" value="Terminar">
 		    <button><a href="./modify.php" style="text-decoration: none">Cambios de cuenta</a></button>
-<!--
-		<button><a href="../index.php">Cancelar</a></button>
--->
 		    <input type="submit" name="logOut" value="Cerrar sesión">
 		</form>
 	    </div>
