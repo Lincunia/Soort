@@ -9,10 +9,9 @@ CREATE TABLE IF NOT EXISTS client(
     amount_mon INT
 );
 CREATE TABLE IF NOT EXISTS shopping(
-    name_prod VARCHAR(50),
-    amount SMALLINT,
+    name_prod TEXT,
     date_of_purch TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP PRIMARY KEY,
-    total INT,
+    amount_mon INT,
 
     id INT,
     FOREIGN KEY(id) REFERENCES client(id)
@@ -44,14 +43,14 @@ INSERT INTO client (id, name, level, email, amount_mon) VALUES
 (1025141597, 'Martinez Quinche Santiago Enrique', '11A', 'msanti0274@gmail.com', 20000),
 (1013587285, 'Ruiz Nausa María Alejandra', '11A', 'ruiznausamariaalejandra10a@gmail.com', 150000);
 -- DECLARAR UNA COMPRA PARTICULAR
-INSERT INTO shopping(name_prod, amount, total, id) VALUES
-('Perro caliente', 1, 3500, 1034400029);
-INSERT INTO shopping(name_prod, amount, total, id) VALUES
-('Papas Margarita', 1, 2200, 1025141597);
-INSERT INTO shopping(name_prod, amount, total, id) VALUES
-('Arepa', 1, 3500, 1034400029);
-INSERT INTO shopping(name_prod, amount, total, id) VALUES
-('Galletas Festival', 3, 3600, 1013587285);
+INSERT INTO shopping(name_prod, amount_mon, id) VALUES
+('Perro caliente', 3500, 1034400029);
+INSERT INTO shopping(name_prod, amount_mon, id) VALUES
+('Papas Margarita', 2200, 1025141597);
+INSERT INTO shopping(name_prod, amount_mon, id) VALUES
+('Arepa', 3500, 1034400029);
+INSERT INTO shopping(name_prod, amount_mon, id) VALUES
+('Galletas Festival', 3600, 1013587285);
 -- ACTUALIZAR USUARIO
 UPDATE client SET name='Diego Agudelo',
 email='dieguito@gmail.com'

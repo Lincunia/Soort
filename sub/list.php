@@ -35,43 +35,67 @@ else{ ?>
     </header>
     <div class="basicCon">
 	<section>
-	    <form method="post" class="menu">
+	    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" class="menu">
 <?php
     include("../crud/read.php");
 ?>
-	    </form>
-	</section>
-	<aside>
-	    <div class="advice" style="background-color: #f2aabd;">
-		<h2>Lo que integrar en la lista de compras:</h2>
-		<ol>
+	    </section>
+	    <aside>
+		<div class="advice" style="background-color: #f2aabd;">
+		    <h2>Lo que integrar en la lista de compras:</h2>
+<?php echo "Esta es la cantidad de dinero que tiene el usuario: $" . $_SESSION['result']['amount_mon']; ?>
+		    <ol>
 <?php
-    if(isset($_POST['logOut'])){
-	session_destroy();
-	header('Location: ../index.php');
-    }
-    if(isset($_POST['list_it'])){
-	/*
-	if(!empty($_POST['check_list'])){
-	    foreach($_POST['check_list'] as $checked){
-		echo $checked."<br>";
+if(isset($_POST['dieter_bohlen'])){
+    if(!empty($_POST['dieter_bohlen'])) {
+	$txt='';
+	$money=0;
+	foreach($prod as $key => $value) {
+	    foreach($_POST['dieter_bohlen'] as $check) {
+		if($key==$check){
+		    echo '<li>' . $check . '  '. $value . '</li>';
+		    $txt.=$check . ", ";
+		    $money+=$value;
+		}
 	    }
 	}
-	*/
+	$user_money=$_SESSION['result']['amount_mon'];
+	if($money<=$user_money){
+	    echo "¡ Compra exitosa !";
+	    $result=$defConn->query("INSERT INTO shopping(name_prod, amount_mon, id) VALUES ('$txt', $money, {$_SESSION['result']['id']});");
+	    $result=$defConn->query("UPDATE client SET amount_mon = ".($user_money - $money)." WHERE id={$_SESSION['result']['id']}");
+	    if(!$result){
+		die('Query fallida');
+	    }
+	}
+	else{
+	    echo "No puedes porque no tienes dinero suficiente";
+	}
+	echo "<br><br>Cantidad de dinero: $" . $money;
+	/*
+	$result=$defConn->query("INSERT INTO shopping(name_prod, amount_mon, id) VALUES
+	    ('$txt', $money, {$_SESSION['result']['id']});");
+	if(!$result){
+	    die('Query fallida');
+	}
+	 */
     }
+}
 ?>
-		</ol>
-		<div style="width: 20px"><a href="./egg.html"></a></div>
-	    </div>
-	    <div style="background-color: #f0e3ad">
-		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
+		    </ol>
 		    <input type="submit" name="list_it" value="Terminar">
-		    <button><a href="./modify.php" style="text-decoration: none">Cambios de cuenta</a></button>
 		    <input type="submit" name="logOut" value="Cerrar sesión">
+		    <button><a href="./modify.php" style="text-decoration: none">Cambios de cuenta</a></button>
+		    <div style="width: 20px"><a href="./egg.html"> </a></div>
 		</form>
 	    </div>
 	</aside>
     </div>
-<?php } ?>
+<?php
+if(isset($_POST['logOut'])){
+    session_destroy();
+    header('Location: ../index.php');
+}
+} ?>
 </body>
 </html>

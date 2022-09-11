@@ -23,17 +23,16 @@ if($_SERVER['PHP_SELF']=='/Soort/sub/list.php'){
     }
     $prod=array();
     foreach($disp_query as $row){
-	$prod=array_merge($prod, array("{$row['name']}"=>$row['prize']));
-    }
-    foreach($prod as $tom => $tord){
+
+	$tom=str_replace(array('_'), ' ', $row['name']);
+	$tom=ucfirst($tom);
+	$tord=$row['prize'];
+	$prod=array_merge($prod, array($tom => $tord));
 ?>
-	<div>
-	    <input type="checkbox" name="disp_query[]" value="<?= $tom?>">
-<?php
-$tom = str_replace(array('_'), ' ', $tom);
-echo ucfirst($tom);
-?>
-	    <label>$ <?= $tord?> </label>
-	</div>
-<?php }
-} ?>
+    <div>
+	<input type="checkbox" name="dieter_bohlen[]" value="<?= $tom ?>">
+	<?= $tom ?>
+	<label >$ <?= $tord ?> </label>
+	<input type="hidden" name="pecunio[]" value="<?= $tord ?>">
+    </div>
+<?php } } ?>
