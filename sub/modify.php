@@ -48,7 +48,7 @@ else{
 			lo intente. Si ya terminó de estudiar en la institución, por favor marque la casilla que está
 			encima del botón.
 			</p>
-			<input type="checkbox" name="confirm"> Acepto las concecuencias que ocurrirán al borrar el
+			<input type="checkbox" name="confirm"> Acepto las consecuencias que ocurrirán al borrar el
 usuario <br>
 			<input name="btnDel" type="submit" value="Eliminar">
 		    </form>

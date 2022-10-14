@@ -24,7 +24,7 @@ MODAL
     <div class="modal" style="background-color: #fcff9e;">
 	<form action="./crud/reg_sig.php" method="POST">
 	    <h1>Inserta tu nombre para aparecer</h1>
-	    <input type="number" placeholder="ID" name="ID" autofocus><br>
+	    <input type="number" placeholder="ID" name="ID" max="9999999999" autofocus><br>
 	    <input type="text" placeholder="Nombre del nuevo estudiante" name="name"><br>
 	    <input type="number" placeholder="Cantidad de dinero disponible" name="money"><br>
 	    <input type="email" placeholder="Correo electrónico" name="email"><br>
@@ -54,7 +54,7 @@ if(isset($_POST['btnLog'])){ ?>
     <div class="modal" style="background-color: #bef794;">
 	<form action="./crud/reg_sig.php" method="POST">
 	    <h1>Inserte los datos corrientes</h1>
-	    <input type="number" class="inData" placeholder="ID" name="lId"><br>
+	    <input type="number" class="inData" placeholder="ID" max="9999999999" name="lId"><br>
 	    <input type="text" class="inData" placeholder="Nombre" name="lName"><br>
 	    <i>Curso: </i>
 	    <select name="numLevLog">

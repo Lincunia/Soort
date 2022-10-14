@@ -10,6 +10,12 @@ function is_session_started() {
     }
     return FALSE;
 }
+function send_query($query, $defConn){
+    $result=$defConn->query($query);
+    if(!$result){
+	die('Query fallida');
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -23,7 +29,6 @@ function is_session_started() {
 </head>
 <body style="background-color: #f9e0ff">
 <?php
-$_SESSION['prod_aux']='';
 if ( is_session_started() === FALSE ){
     header('Location: ../index.php');
 }
@@ -46,7 +51,7 @@ else{ ?>
 <?php echo "Esta es la cantidad de dinero que tiene el usuario: $" . $_SESSION['result']['amount_mon']; ?>
 		    <ol>
 <?php
-if(isset($_POST['dieter_bohlen'])){
+if(isset($_POST['list_it'])){
     if(!empty($_POST['dieter_bohlen'])) {
 	$txt='';
 	$money=0;
@@ -59,43 +64,40 @@ if(isset($_POST['dieter_bohlen'])){
 		}
 	    }
 	}
-	$user_money=$_SESSION['result']['amount_mon'];
-	if($money<=$user_money){
+	if($money<=$_SESSION['result']['amount_mon']){
 	    echo "¡ Compra exitosa !";
-	    $result=$defConn->query("INSERT INTO shopping(name_prod, amount_mon, id) VALUES ('$txt', $money, {$_SESSION['result']['id']});");
-	    $result=$defConn->query("UPDATE client SET amount_mon = ".($user_money - $money)." WHERE id={$_SESSION['result']['id']}");
-	    if(!$result){
-		die('Query fallida');
-	    }
+	    $_SESSION['result']['amount_mon']-=$money;
+	    send_query("INSERT INTO shopping(name_prod, amount_mon, id) VALUES ('$txt', $money, {$_SESSION['result']['id']});", $defConn);
+	    send_query("UPDATE client SET amount_mon = ".($_SESSION['result']['amount_mon'])." WHERE id={$_SESSION['result']['id']}", $defConn);
 	}
 	else{
 	    echo "No puedes porque no tienes dinero suficiente";
 	}
 	echo "<br><br>Cantidad de dinero: $" . $money;
-	/*
-	$result=$defConn->query("INSERT INTO shopping(name_prod, amount_mon, id) VALUES
-	    ('$txt', $money, {$_SESSION['result']['id']});");
-	if(!$result){
-	    die('Query fallida');
-	}
-	 */
+	$_POST['dieter_bohlen']=null;
     }
+    unset($_POST);
+    header("Location: ".$_SERVER['PHP_SELF']);
+    exit;
+}
+if (array_key_exists('postdata', $_SESSION)) {
+    unset($_SESSION['postdata']);
 }
 ?>
-		    </ol>
-		    <input type="submit" name="list_it" value="Terminar">
-		    <input type="submit" name="logOut" value="Cerrar sesión">
-		    <button><a href="./modify.php" style="text-decoration: none">Cambios de cuenta</a></button>
-		    <div style="width: 20px"><a href="./egg.html"> </a></div>
-		</form>
-	    </div>
-	</aside>
-    </div>
+			</ol>
+			<input type="submit" name="list_it" value="Terminar">
+			<input type="submit" name="logOut" value="Cerrar sesión">
+			<button><a href="./modify.php" style="text-decoration: none">Cambios de cuenta</a></button>
+			<div style="width: 20px"><a href="./egg.html"> </a></div>
+		    </form>
+		</div>
+	    </aside>
+	</div>
 <?php
 if(isset($_POST['logOut'])){
     session_destroy();
     header('Location: ../index.php');
 }
 } ?>
-</body>
+    </body>
 </html>

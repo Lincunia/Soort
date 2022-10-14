@@ -2,51 +2,39 @@
 include('../includes/connection.php');
 
 if(isset($_POST['btnAccModlA'])){
-    $id=$_POST['ID'];
-    $name=$_POST['name'];
-    $money=$_POST['money'];
-    $email=$_POST['email'];
-    $fdi='';
-    if(!empty($_POST['numLev']) && !empty($_POST['charLev'])) {
-	$grade = $_POST['numLev'];
-	$room = $_POST['charLev'];
-	$fdi=$grade . $room;
-    }
-
-    if($id==="" || $name==="" || $money==="" || $email==="" || $fdi===""){
+    if((empty($_POST['numLev']) && empty($_POST['charLev'])) ||
+	empty($_POST['ID']) ||
+	empty($_POST['name']) ||
+	empty($_POST['money']) ||
+	empty($_POST['email'])) {
 	$_SESSION['message']='Inserta datos de forma completa';
 	$_SESSION['property']='background-color: rgb(201, 30, 30); display: block;';
 	header('Location: ../index.php');
     }
+    else{
+	$fdi=$_POST['numLev'].$_POST['charLev'];
+	$result=$defConn->query("INSERT INTO client (id, name, level, email, amount_mon) VALUES ({$_POST['ID']}, '{$_POST['name']}', '$fdi', '{$_POST['email']}', {$_POST['money']});");
+    }
 
-    $result=$defConn->query("INSERT INTO client (id, name, level, email, amount_mon) VALUES ($id, '$name', '$fdi', '$email', $money);");
     if(!$result){
 	die('Query fallida');
     }
     $_SESSION['message']='Datos insertados de forma correcta';
     $_SESSION['property']="background-color: rgb(131, 237, 121); display: block;";
 }
-//============================== 
-if(isset($_POST['btnCanModlA']) || isset($_POST['btnCanModlB'])){
-    $_SESSION['displayed']='display: none';
-}
-header('Location: ../index.php');
-//============================== 
+//==============================
 if(isset($_POST['btnAccModlB'])){
-    $id=$_POST['lId'];
-    $name=$_POST['lName'];
-
-    if(!empty($_POST['numLevLog']) && !empty($_POST['charLevLog'])) {
-	$grade = $_POST['numLevLog'];
-	$room = $_POST['charLevLog'];
-	$fdi=$grade . $room;
-    }
-    if($id=="" || $name=="" || !$fdi){
+    if((empty($_POST['numLevLog']) && empty($_POST['charLevLog'])) ||
+	empty($_POST['lId']) ||
+	empty($_POST['lName'])) {
 	$_SESSION['message']='Inserta datos de forma completa';
 	$_SESSION['property']='background-color: rgb(201, 30, 30); display: block;';
 	header('Location: ../index.php');
     }
-    $result=$defConn->query("SELECT * FROM client WHERE name='$name' AND level='$fdi' AND id=$id;");
+    else{
+	$fdi=$_POST['numLevLog'].$_POST['charLevLog'];
+	$result=$defConn->query("SELECT * FROM client WHERE name='{$_POST['lName']}' AND level='$fdi' AND id={$_POST['lId']};");
+    }
     if(!$result){
 	die('Query fallida');
     }
@@ -58,6 +46,10 @@ if(isset($_POST['btnAccModlB'])){
 	$_SESSION['property']='background-color: rgb(201, 30, 30); display: block;';
 	header('Location: ../index.php');
     }
-    if($_SESSION['result']['name']==$name && $_SESSION['result']['id']==$id && $_SESSION['result']['level']==$fdi) header('Location: ../sub/list.php');
+    if($_SESSION['result']['name']==$_POST['lName'] && $_SESSION['result']['id']==$_POST['lId'] && $_SESSION['result']['level']==$fdi) header('Location: ../sub/list.php');
+}
+else{
+    $_SESSION['displayed']='display: none';
+    header('Location: ../index.php');
 }
 ?>
