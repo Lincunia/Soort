@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Oleo+Script+Swash+Caps&display=swap');
+*{
+    font-family: 'Noto Sans JP', sans-serif;
+}
+h1{
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 1.5cm
+}
+header{
+    padding: 1px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    text-align: center;
+}
+.conjunction{
+    margin-top: 10px;
+    margin-right: 5px;
+    overflow: hidden;
+    display: block;
+}
+table, td, th{
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 0px;
+    border-collapse: collapse;
+    text-align: center;
+}
+section{
+    width: 55%;
+    padding: 0.25cm;
+    float: left;
+    margin-right: 5px;
+    overflow: hidden;
+}
+article{
+    padding: 0.25cm;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+aside{
+    width: 40.5%;
+    padding: 0.25cm;
+    overflow: hidden;
+}
+input{
+    width: 100%;
+}
+input[type=checkbox]{
+    width: 20px;
+    margin: .4rem;
+}
+button{
+    border-radius: 0px;
+    background-color: #9ad3fc;
+    border: 0px solid;
+    padding: 5px;
+    margin: 5px;
+}
+.exce_enter{
+    background-color: #9ad3fc;
+    width: 50%;
+    padding: 5px;
+    text-align: center;
+}
+/*=============================*/
+.modal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(195, 230, 199, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+.modal{
+    padding: 0.5cm;
+    width: 50%;
+    max-width: 100%;
+}
+/*=============================*/
+.menu{
+    padding: 10px;
+}
+.menu div{
+    display: block;
+    border-radius: 0px;
+    margin-top: 4px;
+    transition: all .2s ease-in-out;
+    padding: 10px;
+    background-color: #F7FFA3;
+    color: black;
+}
+.menu label{
+    float: right;
+}
+/*=============================*/
+.to_buy{
+    position: fixed;
+    margin-left: 43%;
+}
